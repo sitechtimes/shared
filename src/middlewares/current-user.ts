@@ -20,12 +20,10 @@ export const currentUser = (req: Request, res: Response, next: NextFunction) => 
         return next();
     }
 
-    // if (!req.session?.jwt) {
-    //     return next();
-    // }
+    const token = req.headers.authorization.split(' ')[1];
 
     try {
-        const payload = jwt.verify(req.headers.authorization.split(' ')[1], process.env.JWT_KEY!) as UserPayload;
+        const payload = jwt.verify(token, process.env.JWT_KEY!) as UserPayload;
         req.currentUser = payload;
     } catch (err) { }
 
