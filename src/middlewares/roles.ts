@@ -14,5 +14,4 @@ export const roles = (roles: Array<any>) => (req: Request, res: Response, next: 
     }
 
     next();
-
-}
+};
