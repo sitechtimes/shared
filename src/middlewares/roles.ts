@@ -6,7 +6,9 @@ export const roles = (roles: Array<any>) => (req: Request, res: Response, next: 
     let authorized = false;
 
     roles.forEach(role => {
-        authorized = req.currentUser!.role === role;
+        if (!authorized) {
+            authorized = req.currentUser!.role === role;
+        }
     });
 
     if (!authorized){
