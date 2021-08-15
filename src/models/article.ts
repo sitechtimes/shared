@@ -9,11 +9,7 @@ interface ArticleAttrs {
     content: string;
     imageUrl: string;
     category: string;
-    user: {
-        id: string;
-        name: string;
-        imageUrl: string;
-    }
+    userId: string;
 }
 
 interface ArticleModel extends mongoose.Model<ArticleDoc> {
@@ -26,11 +22,7 @@ export interface ArticleDoc extends mongoose.Document {
     imageUrl: string;
     imageAlt: string;
     category: string;
-    user: {
-        id: string;
-        name: string;
-        imageUrl: string;
-    },
+    userId: string;
     slug: string;
 }
 
