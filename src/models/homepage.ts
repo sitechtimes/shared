@@ -1,17 +1,14 @@
-import mongoose from 'mongoose';
+import mongoose, {Schema} from 'mongoose';
 import {Category} from "../types/category";
 import {Position} from "../types/position";
+import {User} from "./user";
 
 interface HomepageAttrs {
     title: string;
     content: string;
     imageUrl: string;
     category: string;
-    user: {
-        id: string;
-        name: string;
-        imageUrl: string;
-    },
+    userId: string;
     position: Position;
     slug: string;
 }
@@ -25,11 +22,7 @@ export interface HomepageDoc extends mongoose.Document {
     content: string;
     imageUrl: string;
     category: string;
-    user: {
-        id: string;
-        name: string;
-        imageUrl: string;
-    },
+    userId: string;
     position: Position;
     slug: string;
 }
@@ -52,19 +45,10 @@ const homepageSchema = new mongoose.Schema({
         type: Category,
         required: true
     },
-    user: {
-        id: {
-            type: String,
-            required: true
-        },
-        name: {
-            type: String,
-            required: true
-        },
-        imageUrl: {
-            type: String,
-            required: false
-        },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: User,
+        required: true
     },
     position: {
         type: Position,

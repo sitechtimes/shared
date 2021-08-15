@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose, {Schema} from 'mongoose';
 import {Category} from "../types/category";
+import {User} from "./user";
 
 const mongooseSlugPlugin = require('mongoose-slug-plugin')
 
@@ -56,19 +57,10 @@ const articleSchema = new mongoose.Schema({
         type: Category,
         required: true
     },
-    user: {
-        id: {
-            type: String,
-            required: true
-        },
-        name: {
-            type: String,
-            required: true
-        },
-        imageUrl: {
-            type: String,
-            required: false
-        }
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: User,
+        required: true
     },
     slug: {
         type: String,
