@@ -1,6 +1,6 @@
 {
   "name": "@sitechtimes/shared",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -24,7 +24,8 @@
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.13.7"
+    "mongoose": "^5.13.7",
+    "mongoose-slug-plugin": "^2.1.0"
   },
   "devDependencies": {
     "del-cli": "^3.0.1",
